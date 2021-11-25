@@ -6,26 +6,51 @@
 
 template <class T>
 class Vector {
+
+    private:
+
+    int _size;
+    T* _data;
+    int _capasity;
+
+    public:
+
     Vector() {
+        _data = NULL;
+        _capasity = 0;
+        _size = 0;
     }
 
-    Vector(const T1 _first, const T2 _second) {
-        first = _first;
-        second = _second;
+    Vector(const int n) {
+        _data = new T[n];
+        _capasity = n;
+        _size = n;
     }
 
-    Vector(const Pair& copied) {
-        first = copied.first;
-        second = copied.second;
+    Vector(const int n, const T x) {
+        _data = new T[n];
+        _capasity = n;
+        _size = n;
+        for (int i = 0; i < n; ++i) {
+            _data[i] = x;
+        }
     }
 
-    Vector& operator=(const Pair& copied) {
-        first = copied.first;
-        second = copied.second;
-        return(*this);
+    Vector(const Vector& copied) {
+        _capasity = copied._capasity;
+        _size = copied._size;
+        _data = copied._data;
     }
 
     ~Vector() {
+    }
+
+    int capasity() const {
+        return(_capasity);
+    }
+
+    int size() const {
+        return(_size);
     }
 };
 
