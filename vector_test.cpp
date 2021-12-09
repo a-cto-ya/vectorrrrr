@@ -45,12 +45,26 @@ class Vector {
     ~Vector() {
     }
 
-    int capasity() const {
+    int capacity() const {
         return(_capasity);
     }
 
     int size() const {
         return(_size);
+    }
+    bool empty() const {
+        return(_size == 0);
+    }
+
+    Vector resize(const int n) {
+        _size = n;
+    }
+
+    T operator[](const int n) {
+        return _data[n];
+    }
+    T& operator[](const int n) {
+        return _data[n];
     }
 };
 
